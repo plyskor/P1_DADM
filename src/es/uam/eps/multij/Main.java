@@ -1,6 +1,8 @@
-package es.uam.eps.multij;
+
 
 import java.util.ArrayList;
+
+import es.uam.eps.multij.*;
 
 public class Main {
 

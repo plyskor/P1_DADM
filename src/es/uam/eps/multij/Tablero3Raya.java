@@ -1,6 +1,10 @@
-package es.uam.eps.multij;
+
 
 import java.util.ArrayList;
+
+import es.uam.eps.multij.ExcepcionJuego;
+import es.uam.eps.multij.Movimiento;
+import es.uam.eps.multij.Tablero;
 
 public class Tablero3Raya extends Tablero {
 	int[] casillas ;
@@ -17,7 +21,7 @@ public class Tablero3Raya extends Tablero {
 	}
 
 	@Override
-	protected void mueve(Movimiento m) throws ExcepcionJuego {
+	public void mueve(Movimiento m) throws ExcepcionJuego {
 		if(((Movimiento3Raya) m).getCasilla()<0||((Movimiento3Raya) m).getCasilla()>8){
 			throw new ExcepcionJuego("El movimiento debe hacerse dentro del tablero");
 		}
@@ -39,7 +43,11 @@ public class Tablero3Raya extends Tablero {
 			System.out.println(this.toString());
 			this.estado=FINALIZADA;
 		}
-		if(this.numJugadas==9)this.estado=TABLAS;
+		if(this.numJugadas==9){
+			System.out.println("Ha habido un empate, queda el tablero:");
+			System.out.println(this.toString());
+			this.estado=TABLAS;
+		}
 	}
 	public boolean comprobar_ganador(int ganador){
 	    
@@ -134,4 +142,7 @@ public class Tablero3Raya extends Tablero {
 		return true;
 		
 	}
+
+
+
 }
