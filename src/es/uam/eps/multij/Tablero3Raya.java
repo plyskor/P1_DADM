@@ -7,7 +7,7 @@ public class Tablero3Raya extends Tablero {
 	
 	public Tablero3Raya() {
 		super();
-		//this.turno=1;
+		this.numJugadas=0;
 		this.numJugadores=2;
 		this.estado=EN_CURSO;
 		this.casillas=new int[9];
@@ -25,7 +25,49 @@ public class Tablero3Raya extends Tablero {
 			throw new ExcepcionJuego("El movimiento debe hacerse en una casilla libre");
 		}
 		this.casillas[((Movimiento3Raya) m).getCasilla()]=this.getTurno()+1;
-		
+		this.numJugadas++;
+		this.cambiaTurno();
+		if(this.getTurno()==0)
+		System.out.println(this.toString());
+		if(this.comprobar_ganador(1)){
+			System.out.println("Ha ganado el Jugador 1, queda el tablero:");
+			System.out.println(this.toString());
+			this.estado=FINALIZADA;
+		}
+		if(this.comprobar_ganador(2)){
+			System.out.println("Ha ganado el Jugador 2, queda el tablero:");
+			System.out.println(this.toString());
+			this.estado=FINALIZADA;
+		}
+		if(this.numJugadas==9)this.estado=TABLAS;
+	}
+	public boolean comprobar_ganador(int ganador){
+	    
+	    if((this.casillas[0]==ganador) && (this.casillas[1]==ganador) && (this.casillas[2]==ganador)){
+	        return true;
+	    }
+	    if((this.casillas[3]==ganador) && (this.casillas[4]==ganador) && (this.casillas[5]==ganador)){
+	        return true;
+	    }
+	    if((this.casillas[6]==ganador) && (this.casillas[7]==ganador) && (this.casillas[8]==ganador)){
+	        return true;
+	    }
+	    if((this.casillas[0]==ganador) && (this.casillas[3]==ganador) && (this.casillas[6]==ganador)){
+	        return true;
+	    }
+	    if((this.casillas[1]==ganador) && (this.casillas[4]==ganador) && (this.casillas[7]==ganador)){
+	        return true;
+	    }
+	    if((this.casillas[2]==ganador) && (this.casillas[5]==ganador) && (this.casillas[8]==ganador)){
+	        return true;
+	    }
+	    if((this.casillas[0]==ganador) && (this.casillas[4]==ganador) && (this.casillas[8]==ganador)){
+	        return true;
+	    }
+	    if((this.casillas[2]==ganador) && (this.casillas[4]==ganador) && (this.casillas[6]==ganador)){
+	        return true;
+	    }
+	    return false;
 	}
 
 	@Override
@@ -73,15 +115,15 @@ public class Tablero3Raya extends Tablero {
 			if(this.casillas[i]==1)aux+="x";
 			if(this.casillas[i]==2)aux+="o";
 		}
-		ret+="-------";
-		ret=ret+"|"+aux.charAt(0)+"|"+aux.charAt(1)+"|"+aux.charAt(2)+"|";
-		ret+="-------";
+		ret+="-------\n";
+		ret=ret+"|"+aux.charAt(0)+"|"+aux.charAt(1)+"|"+aux.charAt(2)+"|\n";
+		ret+="-------\n";
 		
-		ret=ret+"|"+aux.charAt(3)+"|"+aux.charAt(4)+"|"+aux.charAt(5)+"|";
-		ret+="-------";
+		ret=ret+"|"+aux.charAt(3)+"|"+aux.charAt(4)+"|"+aux.charAt(5)+"|\n";
+		ret+="-------\n";
 		
-		ret=ret+"|"+aux.charAt(6)+"|"+aux.charAt(7)+"|"+aux.charAt(8)+"|";
-		ret+="-------";
+		ret=ret+"|"+aux.charAt(6)+"|"+aux.charAt(7)+"|"+aux.charAt(8)+"|\n";
+		ret+="-------\n";
 		return ret;
 	}
 	public boolean reset(){
