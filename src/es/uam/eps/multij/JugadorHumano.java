@@ -23,7 +23,7 @@ public class JugadorHumano implements Jugador {
             break;
             
         case Evento.EVENTO_CONFIRMA:
-            // este jugador confirma al azar
+           
         	System.out.println("Votas a favor (1) o en contra(0)?;");
         	int opt=Character.getNumericValue(in.next().charAt(0));
             try {
@@ -41,7 +41,7 @@ public class JugadorHumano implements Jugador {
             break;
             
         case Evento.EVENTO_TURNO:
-            // jugar al azar, que gran idea
+            
             Tablero t = evento.getPartida().getTablero();
             
             String p =new String("Casillas Vacías : ");
@@ -54,7 +54,7 @@ public class JugadorHumano implements Jugador {
             
             System.out.println(p);
             opt=Character.getNumericValue(in.next().charAt(0));
-            System.out.println("DEBUG: Elegido movimiento"+opt);
+            //System.out.println("DEBUG: Elegido movimiento"+opt);
             try {
             	evento.getPartida().realizaAccion(new AccionMover(
             			this, new Movimiento3Raya(opt)));

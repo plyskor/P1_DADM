@@ -13,7 +13,7 @@ public class Main {
 		jugadores.add(jugadorHumano); 
 		jugadores.add(jugadorAleatorio);
 		Partida partida = new Partida(new Tablero3Raya(), jugadores); 
-		partida.addObservador(new JugadorHumano("obs"));
+		partida.addObservador(new JugadorHumano("Observador"));
 		Tablero3Raya tablero = (Tablero3Raya) partida.getTablero();
 		partida.comenzar(tablero,jugadores);
 		
