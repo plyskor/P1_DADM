@@ -3,10 +3,14 @@ package es.uam.eps.multij;
 import java.util.ArrayList;
 
 public class Tablero3Raya extends Tablero {
-	int[] casillas;
+	int[] casillas ;
 	
 	public Tablero3Raya() {
 		super();
+		//this.turno=1;
+		this.numJugadores=2;
+		this.estado=EN_CURSO;
+		this.casillas=new int[9];
 		for(int i=0;i<9;i++){
 			this.casillas[i]=0;
 		}
@@ -20,7 +24,7 @@ public class Tablero3Raya extends Tablero {
 		if(this.casillas[((Movimiento3Raya) m).getCasilla()]!=0){
 			throw new ExcepcionJuego("El movimiento debe hacerse en una casilla libre");
 		}
-		this.casillas[((Movimiento3Raya) m).getCasilla()]=this.getTurno();
+		this.casillas[((Movimiento3Raya) m).getCasilla()]=this.getTurno()+1;
 		
 	}
 
