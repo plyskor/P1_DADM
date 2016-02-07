@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="lib" path="/Users/jose/Documents/workspace/P1_DADM/P1_DADM/src/es"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
