@@ -252,7 +252,7 @@ public class Partida {
     }
 
 	public void comienzaPartida() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 }

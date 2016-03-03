@@ -12,7 +12,7 @@ public class JugadorHumano implements Jugador {
 	 private String nombre;
 	public JugadorHumano(String string) {
 		this.nombre=string;
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	@Override
